@@ -857,4 +857,96 @@ class Contract
             return $functionData;
         }
     }
+
+    /**
+     *  Custom Contract 
+    */
+
+    protected string $privateKey;
+    protected float $gasLimitMultiplier = 1.0;
+    protected string $chainId;
+    protected string $walletAddress;
+    protected float $minimumWithdraw = 0;
+
+    public function setPrivateKey(string $key): Contract
+    {
+        $this->privateKey = $key;
+        return $this;
+    }
+
+    private function getPrivateKey(): string
+    {
+        if($this->privateKey) {
+            return $this->privateKey;
+        }
+
+        throw new InvalidArgumentException('Private Key not found.');
+    }
+
+    public function setGasLimitMultiplier(float $mul): Contract
+    {
+        $this->gasLimitMultiplier = $mul;
+        return $this;
+    }
+
+    public function getGasLimitMultiplier(): float
+    {
+        if($this->gasLimitMultiplier) {
+            return $this->gasLimitMultiplier;
+        }
+
+        throw new InvalidArgumentException('Gas Limit Multiplier not found.');
+    }
+
+    public function setChainId(string $chainId): Contract
+    {
+        $this->chainId = $chainId;
+        return $this;
+    }
+
+    public function getChainId(): string
+    {
+        if($this->chainId) {
+            return $this->chainId;
+        }
+
+        throw new InvalidArgumentException('Chain Id not found.');
+    }
+
+    public function setWalletAddress(string $address): Contract
+    {
+        $this->walletAddress = $address;
+        return $this;
+    }
+
+    public function getWalletAddress(): string
+    {
+        if($this->walletAddress) {
+            return $this->walletAddress;
+        }
+
+        throw new InvalidArgumentException('Wallet Address not found.');
+    }
+
+    public function setMinimumWithdraw(float $amount): Contract
+    {
+        $this->minimumWithdraw = $amount;
+        return $this;
+    }
+
+    public function getMinimumWithdraw(): float
+    {
+        if($this->minimumWithdraw) {
+            return $this->minimumWithdraw;
+        }
+
+        throw new InvalidArgumentException('Minimum withdraw not found.');
+    }
+
+    public function hasMinimumWithdraw(string $amount): bool
+    {
+        return $amount >= $this->getMinimumWithdraw();
+    }
+
+
 }
