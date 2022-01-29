@@ -874,7 +874,7 @@ class Contract
         return $this;
     }
 
-    private function getPrivateKey(): string
+    public function getPrivateKey(): string
     {
         if($this->privateKey) {
             return $this->privateKey;
