@@ -16,6 +16,13 @@ use Web3\Providers\HttpProvider;
 use Web3\RequestManagers\RequestManager;
 use Web3\RequestManagers\HttpRequestManager;
 
+/**
+ * @method void gasPrice(\Closure $callback)
+ * @method void estimateGas(array $params, \Closure $callback)
+ * @method void getTransactionCount(string $address, string $status, \Closure $callback)
+ * @method void sendRawTransaction(string $transaction, \Closure $callback)
+ * @method void getTransactionReceipt(string $txHash, \Closure $callback)
+ */
 class Eth
 {
     /**
