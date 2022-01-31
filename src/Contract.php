@@ -796,7 +796,7 @@ class Contract
      * 3. Call sendRawTransaction.
      * 
      * @param mixed
-     * @return void
+     * @return string
      */
     public function getData()
     {
@@ -856,6 +856,8 @@ class Contract
             }
             return $functionData;
         }
+
+        throw new InvalidArgumentException('Contract ABI is required.');
     }
 
     /**
@@ -947,6 +949,4 @@ class Contract
     {
         return $amount >= $this->getMinimumWithdraw();
     }
-
-
 }
