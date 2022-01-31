@@ -943,7 +943,7 @@ class Contract
         throw new InvalidArgumentException('Minimum withdraw not found.');
     }
 
-    public function hasMinimumWithdraw(string $amount): bool
+    public function hasMinimumWithdraw(float $amount): bool
     {
         return $amount >= $this->getMinimumWithdraw();
     }
